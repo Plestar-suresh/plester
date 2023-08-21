@@ -23,8 +23,8 @@ const config = {
 
 var nms = new NodeMediaServer(config);
 nms.run();
-//var root = this;
-/*nms.on('postPublish', (id, StreamPath, args) => {
+var root = this;
+nms.on('postPublish', (id, StreamPath, args) => {
 	globalStreams[id] = StreamPath.split(appName + '/')[1];
 	var options = {
 	  host: 'ihelpdaas.org',
@@ -60,7 +60,7 @@ nms.on('doneConnect', (id, args) => {
 	});
 	delete globalStreams[id];
 
-	/*var dir = mediaFolder + '/' + appName + '/' + streamKey + '/';
+	var dir = mediaFolder + '/' + appName + '/' + streamKey + '/';
 	var files = fs.readdirSync(dir);
 	files.sort(function(a, b) {
     	return fs.statSync(dir + b).mtime.getTime() - fs.statSync(dir + a).mtime.getTime();
@@ -75,6 +75,6 @@ nms.on('doneConnect', (id, args) => {
         	});
         }, 3000);
 	}
-  	//delete globalStreams[id];
-  	//console.log(globalStreams);
-});*/
+  	delete globalStreams[id];
+  	console.log(globalStreams);
+});
